@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
+    "@google-ai/generativelanguage": "^1.1.0",
+    "cors": "^2.8.5",
+    "google-auth-library": "^9.2.0",
     "next": "14.0.3"
   },
   "devDependencies": {
