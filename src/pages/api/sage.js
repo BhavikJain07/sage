@@ -18,11 +18,11 @@ const handler = async (req, res) => {
         const promptString = `Input:
       1. Job Description: ${jobDescription}
       2. User Resume : ${resume}
-      Instructions:
-      1. Assume you are a software designed to help me build professional resumes.
-      2. Check if the provided paragraph is a valid job description.
-      3. If it is not a valid job description, respond with a message indicating that.
-      4. If it is a valid job description, suggest how can I improve my existing resume to match this job description. Strictly align to the users given details and do not invent any information on your own.
+      Instruction:
+      1. Check if the given inputs are valid job description and resume.
+      2. If not, output a message indicating the same.
+      3. If they are, what are the chances of me getting the job using this resume.
+      4. Suggest how the I can improve my chance and how can I prepare for the interview.
       `;
         const stopSequences = [];
         const result = await client
@@ -30,7 +30,7 @@ const handler = async (req, res) => {
             // required, which model to use to generate the result
             model: MODEL_NAME,
             // optional, 0.0 always uses the highest-probability result
-            temperature: 0.7,
+            temperature: 1,
             // optional, how many candidate results to generate
             candidateCount: 1,
             // optional, number of most probable tokens to consider for generation
