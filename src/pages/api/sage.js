@@ -9,20 +9,19 @@ const handler = async (req, res) => {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed!" });
   } else {
-    const { jobDescription, resume } = req.body;
-    if (jobDescription !== undefined && resume !== undefined) {
+    const { jobDescription } = req.body;
+    if (jobDescription !== undefined) {
       try {
         const client = new TextServiceClient({
           authClient: new GoogleAuth().fromAPIKey(API_KEY),
         });
         const promptString = `Input:
       1. Job Description: ${jobDescription}
-      2. User Resume : ${resume}
       Instruction:
-      1. Check if the given inputs are valid job description and resume.
+      1. Check if the given inputs is valid job description.
       2. If not, output a message indicating the same.
-      3. If they are, what are the chances of me getting the job using this resume.
-      4. Suggest how the I can improve my chance and how can I prepare for the interview.
+      3. If it is a valid job description, give me a detailed analysis of how I can customize my resume to match exactly with this job description without inventing any details of your own.
+      4. How can I improve my ATS score.
       `;
         const stopSequences = [];
         const result = await client
