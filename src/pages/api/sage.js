@@ -45,7 +45,7 @@ const handler = async (req, res) => {
 
         const parts = [
           {
-            text: `Input:\n      1. Job Description: ${jobDescription}\n      Instruction:\n      1. Check if the given inputs is valid job description and respond with a message indicating the same.\n  2. If it is a valid job description, give me a detailed analysis of how I can customize my resume to match exactly with this job description without inventing any details of your own.\n  3. How can I improve my ATS score.\n`,
+            text: `Input:\nJob Description - A job description pasted by the user.\nTask: \nAnalyze a job description Check if its a valid job description. If not, respond with a message saying its not a valid job description. If it is provide detailed, data-driven recommendations for tailoring an existing resume to that specific job. Provide a sample resume template the user can use.\nJob Description:${jobDescription}`,
           },
         ];
         const result = await model.generateContent({
