@@ -45,7 +45,7 @@ const handler = async (req, res) => {
 
         const parts = [
           {
-            text: `Input:\nJob Description - A job description pasted by the user.\nTask: \nAnalyze a job description Check if its a valid job description. If not, respond with a message saying its not a valid job description. If it is provide detailed, data-driven recommendations for tailoring an existing resume to that specific job. Provide a sample resume template the user can use.\nJob Description:${jobDescription}`,
+            text: `Input:\nJob Description - A job description pasted by the user.\nTask: \nAnalyze a job description Check if its a job description. If not, respond with a message saying its not a valid job description. If it is provide detailed, data-driven recommendations for tailoring an existing resume to that specific job like give the keywords or the keyphrases to  add or on what all sections or details is necessary for the resume. Make it more natural like a conversation. \nJob Description: ${jobDescription}\n`,
           },
         ];
         const result = await model.generateContent({
